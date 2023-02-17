@@ -1,8 +1,8 @@
 import { useState } from "react";
-import ChatBody from "./components/ChatBody";
-import ChatInput from "./components/ChatInput";
 import { useMutation } from "react-query";
 import { fetchResponse } from "./api";
+import ChatBody from "./components/ChatBody";
+import ChatInput from "./components/ChatInput";
 function App() {
   const [chat, setChat] = useState([]);
 
@@ -13,7 +13,7 @@ function App() {
     onSuccess: (data) =>
       setChat((prev) => [
         ...prev,
-        { sender: "ai", message: data.message.replace(/^\n\n/, "") },
+        { sender: "ai", message: data.text.replace(/^\n\n/, "") },
       ]),
   });
 
